@@ -3,40 +3,40 @@ import data from "../../artigos.json"
 function Home() {
     console.log(data)
     return ( 
-        <main className="bg-white">
-        <div className="flex justify-center">
-                 <input className=" w-80 h-12 rounded-lg border-solid border-2 border-purple-600 mt-10" type="text" name="busca" id="busca" placeholder="Digite aqui sua busca" />
+        <main className="bg-black">
+            <div className="flex justify-center ">
+                 <input className=" w-80 h-12 rounded-lg mt-10 p-5 border-solid border-2 border-red-600 bg-black text-white" type="text" name="busca" id="busca" placeholder="Digite aqui sua busca" />
             </div>
+            
             <div className="grid grid-cols-3 gap-4">
 
             {data.map(
                     filme => (
                      <div className="card mx-5 gap-3" key={filme.title}>
-                           <h1 className="bg-white text-black flex justify-center border-solid border-2 border-purple-600 rounded-lg mt-5 ">{filme.title}</h1>
+                           <h1 className="bg-black text-white flex justify-center border-solid border-2 border-red-600 rounded-lg mt-5 ">{filme.title}</h1>
 
                            {filme.image ?
-                           <img className="w-40 flex justify-center items-center m-10 rounded-lg mb-15 mt-10 " src={filme.image} alt={filme.title} />:
+                           <img className="w-[250px] flex justify-center items-center m-10 rounded-lg mb-15 mt-10  " src={filme.image} alt={filme.title} />:
                            "Não tem imagem"}
 
-                           <div className="text bg-white rounded-lg text-black border-purple-600 border-2 p-10 mb-7">
+                           <div className="text bg-black rounded-lg text-white border-solid border-2 p-10 mb-7 text-justify">
                                {filme.text.map(text => (
                                 <span key={text}> {text}</span>
                                ))}
                            </div>
 
-                           <div className="tag bg-white rounded-lg text-black flex justify-center border-pink-700 border-2 mt-4" >
+                           <div className="tag bg-black rounded-lg text-white flex justify-center border-solid border-2 mt-4" >
                                {filme.tags.map(tag => (
                                 <span key={tag}> {tag}</span>
                                ))}
                            </div>
                        
-                           </div>
-                      
+                        
+                     </div>   
                  
                 )
                 )
                 }
-                
           
             </div>
            
