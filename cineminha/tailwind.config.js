@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
         'bgHeader': `#FABE3B`,
-        'colorTxt': `#2B2B2B`,
+        'colorTxt': `#ffffff`,
         'colorTitle': `#ffffff` 
       }
     },

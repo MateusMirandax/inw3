@@ -19,6 +19,8 @@ useEffect( () => {
         <>
         <h1>Filmes</h1>
         <div className="listaFilmes flex flex-row gap-3">
+    
+
         {
             filmes.map(filme =>(
                 <div className="card-filme" key={filme.id}>
@@ -28,6 +30,7 @@ useEffect( () => {
                 </div>
             ))
         }
+        
         </div>
         </>
      );
