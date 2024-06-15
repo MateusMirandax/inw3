@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bgHeader': `#000000`,
-        'colorTxt': `#ffffff`,
+        'bgHeader': `#FABE3B`,
+        'colorTxt': `#2B2B2B`,
         'colorTitle': `#ffffff` 
       }
     },
