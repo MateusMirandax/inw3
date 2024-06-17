@@ -26,7 +26,7 @@ useEffect( () => {
                 <div className="card-filme" key={filme.id}>
                 <img src={`${urlImg}${filme.poster_path}`}/>
                 <h1>{filme.title}</h1>
-                <Link to={`${filmes.id}`} className="text-purple-800">Saber Mais</Link>
+                <Link to={`${filme.id}`} className="text-purple-800">Saber Mais</Link>
                 </div>
             ))
         }
