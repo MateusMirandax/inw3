@@ -1,24 +1,53 @@
 import React from 'react';
+import { useState, useEffect } from "react"
 
 import data from '../../artigos.json';
 import Carrosel from '../Componentes/Carrossel/Carrossel';
 
 function Home() {
+
+    const [filmes, setFilmes] = useState([])
+    const apiKey='api_key=7c572a9f5b3ba776080330d23bb76e1e'
+    const urlBase = 'https://api.themoviedb.org/3/movie/'
+    const urlImg = 'https://image.tmdb.org/t/p/w342/'
+
+    useEffect( () => {
+        fetch(`${urlBase}upcoming?${apiKey}`)
+        .then(response => response.json())
+        .then(response => setFilmes(response.results))
+        .catch(erro => console.log(erro))
+    },[])
+
     return (
         <>
         
             <main className="bg-black">
-                <Carrosel/>
-                <div className="grid grid-cols-3 gap-4 mt-1">
-                    {data.map((filme, index) => (
-                        <div className='card mx-5 gap-3' key={index}>
-                            <h1 className='text-xl font-medium mb-4 text-white'>{filme.title}</h1>
-                            <img src={filme.image} alt={filme.title} className='w-80' />
-
-                           
-                        </div>
-                    ))}
+                <div>
+                    <img src=""/>
+                    <Carrosel/>
+                    <img src=""/>
                 </div>
+
+
+                <div className='flex flex-col items-center'>
+
+                    <h1 className='text-white'>Lançamentos</h1>
+
+                    <div className='w-full flex flex-row justify-around'>
+                        {
+                        filmes.slice(0, 3).map(filme =>(
+                            <div className="card-filme" key={filme.id}>
+                                <img src={`${urlImg}${filme.poster_path}`}/>
+                                <h1>{filme.title}</h1>
+                            </div>
+                        ))
+                        }
+                    </div>
+                    
+                </div>
+
+                
+                
             </main>
         </>
     );
